@@ -1,0 +1,750 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SOSBrothers | Eletricista em Bras&iacute;lia e DF</title>
+  <meta name="description" content="Eletricista em Bras&iacute;lia para manuten&ccedil;&atilde;o, instala&ccedil;&otilde;es, reformas e emerg&ecirc;ncias. Atendimento r&aacute;pido pelo WhatsApp.">
+  <style>
+    :root {
+      color-scheme: light;
+      --navy: #071728;
+      --navy-2: #10243c;
+      --yellow: #ffc928;
+      --yellow-2: #ffb000;
+      --green: #20b45b;
+      --green-2: #139245;
+      --sky: #e8f6ff;
+      --paper: #ffffff;
+      --ink: #17212b;
+      --muted: #607080;
+      --line: rgba(16, 36, 60, .13);
+      --shadow: 0 24px 70px rgba(7, 23, 40, .16);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      background: #f7fafc;
+      color: var(--ink);
+      line-height: 1.5;
+    }
+
+    img { max-width: 100%; display: block; }
+
+    a { color: inherit; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 255, 255, .88);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav {
+      width: min(1180px, calc(100% - 36px));
+      min-height: 72px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      font-weight: 900;
+      letter-spacing: 0;
+      color: var(--navy);
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--yellow), #fff0a9);
+      box-shadow: 0 12px 26px rgba(255, 185, 0, .32);
+      color: var(--navy);
+      font-size: 24px;
+      font-weight: 900;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: #32465b;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+    }
+
+    .whatsapp-mini,
+    .whatsapp-main,
+    .whatsapp-float {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-decoration: none;
+      border: 0;
+      cursor: pointer;
+      font-weight: 900;
+      color: #fff;
+      background: linear-gradient(135deg, var(--green), var(--green-2));
+      box-shadow: 0 16px 34px rgba(32, 180, 91, .28);
+    }
+
+    .whatsapp-mini {
+      min-height: 42px;
+      padding: 0 16px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .whatsapp-icon {
+      width: 22px;
+      height: 22px;
+      flex: 0 0 auto;
+    }
+
+    .hero {
+      position: relative;
+      min-height: calc(100vh - 72px);
+      overflow: hidden;
+      background:
+        linear-gradient(110deg, rgba(7, 23, 40, .95) 0%, rgba(7, 23, 40, .88) 42%, rgba(7, 23, 40, .14) 100%),
+        url("assets/hero-electrician.png") center right / cover no-repeat;
+      color: #fff;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 110px;
+      background: linear-gradient(180deg, rgba(247, 250, 252, 0), #f7fafc);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      width: min(1180px, calc(100% - 36px));
+      min-height: calc(100vh - 72px);
+      margin: 0 auto;
+      display: grid;
+      align-content: center;
+      padding: 72px 0 132px;
+    }
+
+    .hero-copy {
+      max-width: 690px;
+    }
+
+    .eyebrow {
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 201, 40, .14);
+      border: 1px solid rgba(255, 201, 40, .48);
+      color: #ffe58a;
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    h1 {
+      margin: 24px 0 0;
+      font-size: clamp(42px, 7vw, 78px);
+      line-height: .96;
+      letter-spacing: 0;
+      max-width: 820px;
+    }
+
+    .hero-text {
+      max-width: 640px;
+      margin: 22px 0 0;
+      color: rgba(255, 255, 255, .82);
+      font-size: clamp(18px, 2vw, 23px);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .whatsapp-main {
+      min-height: 60px;
+      padding: 0 24px;
+      border-radius: 14px;
+      font-size: 17px;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .whatsapp-main:hover,
+    .whatsapp-mini:hover,
+    .whatsapp-float:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 44px rgba(32, 180, 91, .36);
+    }
+
+    .phone-card {
+      min-height: 60px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 18px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, .22);
+      background: rgba(255, 255, 255, .1);
+      color: rgba(255, 255, 255, .9);
+      font-weight: 800;
+      backdrop-filter: blur(10px);
+    }
+
+    .trust-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      max-width: 760px;
+      margin-top: 36px;
+    }
+
+    .trust-item {
+      padding: 16px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, .1);
+      border: 1px solid rgba(255, 255, 255, .16);
+      backdrop-filter: blur(10px);
+    }
+
+    .trust-item strong {
+      display: block;
+      color: var(--yellow);
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .trust-item span {
+      display: block;
+      margin-top: 6px;
+      color: rgba(255, 255, 255, .78);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    section {
+      padding: 76px 0;
+    }
+
+    .wrap {
+      width: min(1180px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 30px;
+    }
+
+    .section-kicker {
+      margin: 0 0 10px;
+      color: var(--yellow-2);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.04;
+      letter-spacing: 0;
+    }
+
+    .section-text {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 720px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .service-card,
+    .proof-card,
+    .step-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: 0 18px 54px rgba(7, 23, 40, .07);
+    }
+
+    .service-card {
+      min-height: 225px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .service-card::before {
+      content: "";
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      right: -56px;
+      top: -56px;
+      border-radius: 50%;
+      background: rgba(255, 201, 40, .2);
+    }
+
+    .icon-badge {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: var(--sky);
+      color: var(--navy);
+      font-size: 27px;
+      font-weight: 900;
+    }
+
+    .service-card h3,
+    .proof-card h3,
+    .step-card h3 {
+      margin: 22px 0 8px;
+      color: var(--navy);
+      font-size: 22px;
+      line-height: 1.15;
+    }
+
+    .service-card p,
+    .proof-card p,
+    .step-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .proof {
+      background: linear-gradient(180deg, #f7fafc 0%, #eef7ff 100%);
+    }
+
+    .proof-layout {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .highlight-panel {
+      min-height: 100%;
+      padding: 32px;
+      border-radius: 22px;
+      background: linear-gradient(145deg, var(--navy), var(--navy-2));
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .highlight-panel h2 {
+      color: #fff;
+    }
+
+    .highlight-panel p {
+      margin: 16px 0 0;
+      color: rgba(255, 255, 255, .78);
+      font-size: 18px;
+    }
+
+    .check-list {
+      display: grid;
+      gap: 13px;
+      padding: 0;
+      margin: 26px 0 0;
+      list-style: none;
+    }
+
+    .check-list li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      color: rgba(255, 255, 255, .9);
+      font-weight: 700;
+    }
+
+    .check {
+      width: 24px;
+      height: 24px;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--yellow);
+      color: var(--navy);
+      font-weight: 900;
+    }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .proof-card {
+      padding: 24px;
+    }
+
+    .steps {
+      background: #fff;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .step-card {
+      padding: 24px;
+      position: relative;
+    }
+
+    .step-number {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: var(--yellow);
+      color: var(--navy);
+      font-weight: 900;
+    }
+
+    .cta-band {
+      padding: 0 0 88px;
+    }
+
+    .cta-box {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 24px;
+      padding: clamp(28px, 5vw, 44px);
+      border-radius: 24px;
+      background:
+        linear-gradient(135deg, rgba(255, 201, 40, .94), rgba(255, 176, 0, .94)),
+        radial-gradient(circle at 92% 8%, rgba(255, 255, 255, .55), transparent 28%);
+      box-shadow: 0 24px 70px rgba(255, 176, 0, .25);
+      color: var(--navy);
+    }
+
+    .cta-box h2 {
+      color: var(--navy);
+    }
+
+    .cta-box p {
+      margin: 12px 0 0;
+      max-width: 690px;
+      color: rgba(7, 23, 40, .72);
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .cta-box .whatsapp-main {
+      background: linear-gradient(135deg, #071728, #17385b);
+      box-shadow: 0 18px 40px rgba(7, 23, 40, .22);
+    }
+
+    footer {
+      padding: 26px 0 92px;
+      background: var(--navy);
+      color: rgba(255, 255, 255, .72);
+    }
+
+    .footer-row {
+      width: min(1180px, calc(100% - 36px));
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-size: 14px;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 30;
+      min-height: 58px;
+      padding: 0 20px;
+      border-radius: 999px;
+      font-size: 16px;
+    }
+
+    @media (max-width: 900px) {
+      .nav-links a { display: none; }
+      .hero { background-position: 68% center; }
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(7, 23, 40, .24);
+      }
+      .trust-row,
+      .services-grid,
+      .proof-layout,
+      .proof-grid,
+      .steps-grid,
+      .cta-box {
+        grid-template-columns: 1fr;
+      }
+      .hero-inner {
+        min-height: auto;
+        padding-top: 56px;
+      }
+      .whatsapp-float {
+        left: 18px;
+        right: 18px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .nav {
+        width: min(100% - 24px, 1180px);
+      }
+      .brand span:last-child {
+        max-width: 120px;
+        line-height: 1.1;
+      }
+      .whatsapp-mini {
+        width: 42px;
+        padding: 0;
+      }
+      .whatsapp-mini span {
+        display: none;
+      }
+      .hero-inner,
+      .wrap,
+      .footer-row {
+        width: min(100% - 28px, 1180px);
+      }
+      .hero-actions {
+        align-items: stretch;
+      }
+      .whatsapp-main,
+      .phone-card {
+        width: 100%;
+      }
+      section {
+        padding: 58px 0;
+      }
+      .service-card,
+      .proof-card,
+      .step-card,
+      .highlight-panel {
+        border-radius: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav" aria-label="Navega&ccedil;&atilde;o principal">
+      <a class="brand" href="#top" aria-label="SOSBrothers">
+        <span class="brand-mark">S</span>
+        <span>SOSBrothers</span>
+      </a>
+      <div class="nav-links">
+        <a href="#servicos">Servi&ccedil;os</a>
+        <a href="#diferenciais">Diferenciais</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a class="whatsapp-mini" href="https://wa.me/5561981173919?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20SOSBrothers%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener">
+          <svg class="whatsapp-icon" viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16.04 3.2A12.7 12.7 0 0 0 5.1 22.3L3.2 29l6.9-1.8a12.67 12.67 0 0 0 5.94 1.5h.01A12.75 12.75 0 0 0 16.04 3.2Zm7.5 18.1c-.31.87-1.82 1.67-2.55 1.78-.65.1-1.48.14-2.39-.15-.55-.18-1.26-.41-2.17-.8-3.82-1.65-6.31-5.49-6.5-5.74-.19-.25-1.55-2.06-1.55-3.93s.98-2.79 1.33-3.17c.35-.38.76-.47 1.02-.47.25 0 .51 0 .73.01.23.01.55-.09.86.66.31.75 1.06 2.59 1.15 2.78.09.19.16.41.03.66-.12.25-.19.41-.38.63-.19.22-.41.49-.58.66-.19.19-.39.39-.17.76.22.38.96 1.58 2.06 2.56 1.41 1.26 2.6 1.65 2.98 1.84.38.19.6.16.82-.09.22-.25.95-1.11 1.2-1.49.25-.38.51-.32.86-.19.35.13 2.22 1.05 2.6 1.24.38.19.63.29.73.44.09.16.09.91-.22 1.78Z"/></svg>
+          <span>WhatsApp</span>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-label="Eletricista em Bras&iacute;lia">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <span class="eyebrow">Eletricista em Bras&iacute;lia e DF</span>
+          <h1>Servi&ccedil;o el&eacute;trico r&aacute;pido, seguro e bem feito.</h1>
+          <p class="hero-text">Instala&ccedil;&otilde;es, reparos, quadros, disjuntores, tomadas, lumin&aacute;rias e suporte para reformas com atendimento direto pelo WhatsApp.</p>
+          <div class="hero-actions">
+            <a class="whatsapp-main" href="https://wa.me/5561981173919?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20SOSBrothers%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener">
+              <svg class="whatsapp-icon" viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16.04 3.2A12.7 12.7 0 0 0 5.1 22.3L3.2 29l6.9-1.8a12.67 12.67 0 0 0 5.94 1.5h.01A12.75 12.75 0 0 0 16.04 3.2Zm7.5 18.1c-.31.87-1.82 1.67-2.55 1.78-.65.1-1.48.14-2.39-.15-.55-.18-1.26-.41-2.17-.8-3.82-1.65-6.31-5.49-6.5-5.74-.19-.25-1.55-2.06-1.55-3.93s.98-2.79 1.33-3.17c.35-.38.76-.47 1.02-.47.25 0 .51 0 .73.01.23.01.55-.09.86.66.31.75 1.06 2.59 1.15 2.78.09.19.16.41.03.66-.12.25-.19.41-.38.63-.19.22-.41.49-.58.66-.19.19-.39.39-.17.76.22.38.96 1.58 2.06 2.56 1.41 1.26 2.6 1.65 2.98 1.84.38.19.6.16.82-.09.22-.25.95-1.11 1.2-1.49.25-.38.51-.32.86-.19.35.13 2.22 1.05 2.6 1.24.38.19.63.29.73.44.09.16.09.91-.22 1.78Z"/></svg>
+              Pedir or&ccedil;amento agora
+            </a>
+            <span class="phone-card">(61) 98117-3919</span>
+          </div>
+          <div class="trust-row" aria-label="Destaques">
+            <div class="trust-item"><strong>DF</strong><span>Atendimento em Bras&iacute;lia e regi&atilde;o</span></div>
+            <div class="trust-item"><strong>Zap</strong><span>Or&ccedil;amento direto e r&aacute;pido</span></div>
+            <div class="trust-item"><strong>100%</strong><span>Foco em seguran&ccedil;a el&eacute;trica</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicos">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section-kicker">Servi&ccedil;os</p>
+          <h2>Da emerg&ecirc;ncia ao acabamento da obra.</h2>
+          <p class="section-text">A SOSBrothers resolve desde pequenos reparos at&eacute; instala&ccedil;&otilde;es completas, com atendimento claro e orienta&ccedil;&atilde;o antes da execu&ccedil;&atilde;o.</p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card">
+            <div>
+              <div class="icon-badge">220</div>
+              <h3>Manuten&ccedil;&atilde;o el&eacute;trica</h3>
+              <p>Corre&ccedil;&atilde;o de quedas, curtos, tomadas, interruptores, chuveiros, disjuntores e pontos sem energia.</p>
+            </div>
+          </article>
+          <article class="service-card">
+            <div>
+              <div class="icon-badge">QDR</div>
+              <h3>Quadros e disjuntores</h3>
+              <p>Organiza&ccedil;&atilde;o, troca e revis&atilde;o de quadros el&eacute;tricos para deixar a instala&ccedil;&atilde;o mais segura.</p>
+            </div>
+          </article>
+          <article class="service-card">
+            <div>
+              <div class="icon-badge">OBR</div>
+              <h3>Reformas e obras</h3>
+              <p>Passagem de fia&ccedil;&atilde;o, novos circuitos, ilumina&ccedil;&atilde;o, tomadas planejadas e prepara&ccedil;&atilde;o de ambientes.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="proof" id="diferenciais">
+      <div class="wrap proof-layout">
+        <div class="highlight-panel">
+          <p class="section-kicker">Por que chamar a SOSBrothers</p>
+          <h2>Atendimento direto, visual profissional e servi&ccedil;o sem enrola&ccedil;&atilde;o.</h2>
+          <p>Voc&ecirc; explica o problema pelo WhatsApp, envia fotos se quiser e recebe orienta&ccedil;&atilde;o para o pr&oacute;ximo passo.</p>
+          <ul class="check-list">
+            <li><span class="check">OK</span><span>Comunica&ccedil;&atilde;o clara antes do servi&ccedil;o</span></li>
+            <li><span class="check">OK</span><span>Atendimento para resid&ecirc;ncias, reformas e pequenos com&eacute;rcios</span></li>
+            <li><span class="check">OK</span><span>Organiza&ccedil;&atilde;o e cuidado com acabamento</span></li>
+          </ul>
+        </div>
+        <div class="proof-grid">
+          <article class="proof-card">
+            <div class="icon-badge">OK</div>
+            <h3>Seguran&ccedil;a em primeiro lugar</h3>
+            <p>Servi&ccedil;o feito com aten&ccedil;&atilde;o ao quadro, carga, fia&ccedil;&atilde;o e prote&ccedil;&otilde;es necess&aacute;rias.</p>
+          </article>
+          <article class="proof-card">
+            <div class="icon-badge">Zap</div>
+            <h3>Resposta r&aacute;pida</h3>
+            <p>Bot&atilde;o direto para WhatsApp para agilizar o primeiro contato e o or&ccedil;amento.</p>
+          </article>
+          <article class="proof-card">
+            <div class="icon-badge">Pro</div>
+            <h3>Acabamento limpo</h3>
+            <p>Instala&ccedil;&atilde;o planejada para ficar funcional, segura e visualmente organizada.</p>
+          </article>
+          <article class="proof-card">
+            <div class="icon-badge">Tel</div>
+            <h3>Atendimento humano</h3>
+            <p>Voc&ecirc; fala direto com quem entende o servi&ccedil;o e consegue orientar a melhor solu&ccedil;&atilde;o.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="steps" id="como-funciona">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section-kicker">Como funciona</p>
+          <h2>Tr&ecirc;s passos para resolver.</h2>
+          <p class="section-text">Um fluxo simples para sair da d&uacute;vida e chegar no servi&ccedil;o executado com clareza.</p>
+        </div>
+        <div class="steps-grid">
+          <article class="step-card">
+            <span class="step-number">1</span>
+            <h3>Chame no WhatsApp</h3>
+            <p>Envie o que aconteceu, seu bairro e, se poss&iacute;vel, fotos ou v&iacute;deo do local.</p>
+          </article>
+          <article class="step-card">
+            <span class="step-number">2</span>
+            <h3>Receba orienta&ccedil;&atilde;o</h3>
+            <p>Avaliamos o cen&aacute;rio e explicamos o melhor caminho para reparo, instala&ccedil;&atilde;o ou visita.</p>
+          </article>
+          <article class="step-card">
+            <span class="step-number">3</span>
+            <h3>Servi&ccedil;o executado</h3>
+            <p>O trabalho &eacute; feito com foco em seguran&ccedil;a, organiza&ccedil;&atilde;o e acabamento.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="wrap">
+        <div class="cta-box">
+          <div>
+            <h2>Precisa de eletricista hoje?</h2>
+            <p>Fale agora pelo WhatsApp e conte o que precisa. A SOSBrothers atende Bras&iacute;lia e DF.</p>
+          </div>
+          <a class="whatsapp-main" href="https://wa.me/5561981173919?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20SOSBrothers%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener">
+            <svg class="whatsapp-icon" viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16.04 3.2A12.7 12.7 0 0 0 5.1 22.3L3.2 29l6.9-1.8a12.67 12.67 0 0 0 5.94 1.5h.01A12.75 12.75 0 0 0 16.04 3.2Zm7.5 18.1c-.31.87-1.82 1.67-2.55 1.78-.65.1-1.48.14-2.39-.15-.55-.18-1.26-.41-2.17-.8-3.82-1.65-6.31-5.49-6.5-5.74-.19-.25-1.55-2.06-1.55-3.93s.98-2.79 1.33-3.17c.35-.38.76-.47 1.02-.47.25 0 .51 0 .73.01.23.01.55-.09.86.66.31.75 1.06 2.59 1.15 2.78.09.19.16.41.03.66-.12.25-.19.41-.38.63-.19.22-.41.49-.58.66-.19.19-.39.39-.17.76.22.38.96 1.58 2.06 2.56 1.41 1.26 2.6 1.65 2.98 1.84.38.19.6.16.82-.09.22-.25.95-1.11 1.2-1.49.25-.38.51-.32.86-.19.35.13 2.22 1.05 2.6 1.24.38.19.63.29.73.44.09.16.09.91-.22 1.78Z"/></svg>
+            Pedir or&ccedil;amento
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-row">
+      <strong>SOSBrothers</strong>
+      <span>Eletricista em Bras&iacute;lia e DF</span>
+      <span>(61) 98117-3919</span>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/5561981173919?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20SOSBrothers%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener" aria-label="Chamar no WhatsApp">
+    <svg class="whatsapp-icon" viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16.04 3.2A12.7 12.7 0 0 0 5.1 22.3L3.2 29l6.9-1.8a12.67 12.67 0 0 0 5.94 1.5h.01A12.75 12.75 0 0 0 16.04 3.2Zm7.5 18.1c-.31.87-1.82 1.67-2.55 1.78-.65.1-1.48.14-2.39-.15-.55-.18-1.26-.41-2.17-.8-3.82-1.65-6.31-5.49-6.5-5.74-.19-.25-1.55-2.06-1.55-3.93s.98-2.79 1.33-3.17c.35-.38.76-.47 1.02-.47.25 0 .51 0 .73.01.23.01.55-.09.86.66.31.75 1.06 2.59 1.15 2.78.09.19.16.41.03.66-.12.25-.19.41-.38.63-.19.22-.41.49-.58.66-.19.19-.39.39-.17.76.22.38.96 1.58 2.06 2.56 1.41 1.26 2.6 1.65 2.98 1.84.38.19.6.16.82-.09.22-.25.95-1.11 1.2-1.49.25-.38.51-.32.86-.19.35.13 2.22 1.05 2.6 1.24.38.19.63.29.73.44.09.16.09.91-.22 1.78Z"/></svg>
+    Chamar no WhatsApp
+  </a>
+</body>
+</html>
