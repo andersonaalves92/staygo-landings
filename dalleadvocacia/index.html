@@ -115,6 +115,8 @@
 
                 <a href="#inicio">Início</a>
 
+                <a href="#triagem">Triagem</a>
+
                 <a href="#sobre">Sobre</a>
 
                 <a href="#atuacao">Atuação</a>
@@ -181,11 +183,10 @@
                 <div class="hero-botoes">
 
                     <a
-                        href="https://wa.me/5561999784330"
-                        target="_blank"
+                        href="#triagem"
                         class="btn-principal">
 
-                        Falar pelo WhatsApp
+                        Iniciar atendimento
 
                     </a>
 
@@ -360,6 +361,199 @@
             </article>
 
         </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+     TRIAGEM STAYGO
+========================================================== -->
+
+<section
+    class="triagem-staygo"
+    id="triagem">
+
+    <div class="container">
+
+        <div class="triagem-copy">
+
+            <span class="titulo-pequeno">
+
+                ATENDIMENTO INICIAL
+
+            </span>
+
+            <h2>
+
+                Explique seu caso em poucos campos.
+
+            </h2>
+
+            <p>
+
+                A assistente Laura organiza as informações essenciais para que
+                o escritório entenda a urgência, a cidade e o tipo de demanda
+                antes do primeiro contato humano.
+
+            </p>
+
+            <ul>
+
+                <li>Atendimento inicial com sigilo e objetividade.</li>
+
+                <li>Triagem para prisão, flagrante, audiência e habeas corpus.</li>
+
+                <li>Encaminhamento do lead ao advogado quando houver urgência.</li>
+
+            </ul>
+
+        </div>
+
+        <form
+            class="staygo-form"
+            data-staygo-slug="dalleadvocacia"
+            data-staygo-whatsapp="5561999784330">
+
+            <h3>
+
+                Receber orientação inicial
+
+            </h3>
+
+            <p>
+
+                Preencha para que a Laura organize seu atendimento.
+
+            </p>
+
+            <label>
+
+                Seu nome
+
+                <input
+                    type="text"
+                    name="contactName"
+                    placeholder="Digite seu nome"
+                    autocomplete="name">
+
+            </label>
+
+            <label>
+
+                WhatsApp
+
+                <input
+                    type="tel"
+                    name="phone"
+                    placeholder="(61) 99999-9999"
+                    autocomplete="tel"
+                    required>
+
+            </label>
+
+            <label>
+
+                Cidade
+
+                <input
+                    type="text"
+                    name="city"
+                    placeholder="Ex: Brasília/DF"
+                    autocomplete="address-level2">
+
+            </label>
+
+            <label>
+
+                Tipo de caso
+
+                <select name="area">
+
+                    <option value="">Selecione uma opção</option>
+
+                    <option value="Prisão em flagrante">Prisão em flagrante</option>
+
+                    <option value="Audiência de custódia">Audiência de custódia</option>
+
+                    <option value="Habeas corpus">Habeas corpus</option>
+
+                    <option value="Intimação ou delegacia">Intimação ou delegacia</option>
+
+                    <option value="Processo criminal">Processo criminal</option>
+
+                    <option value="Outro caso criminal">Outro caso criminal</option>
+
+                </select>
+
+            </label>
+
+            <label>
+
+                Urgência
+
+                <select name="urgency">
+
+                    <option value="">Selecione uma opção</option>
+
+                    <option value="Urgente agora">Urgente agora</option>
+
+                    <option value="Ainda hoje">Ainda hoje</option>
+
+                    <option value="Tenho prazo ou audiência">Tenho prazo ou audiência</option>
+
+                    <option value="Quero tirar uma dúvida">Quero tirar uma dúvida</option>
+
+                </select>
+
+            </label>
+
+            <label class="staygo-full">
+
+                Conte rapidamente o que aconteceu
+
+                <textarea
+                    name="message"
+                    rows="4"
+                    placeholder="Ex: fui intimado, tenho audiência marcada, familiar preso, preciso de habeas corpus..."
+                    required></textarea>
+
+            </label>
+
+            <input type="hidden" name="source" value="landing">
+
+            <input type="hidden" name="capturedFrom" value="dalleadvocacia">
+
+            <button
+                type="submit"
+                class="btn-principal staygo-submit">
+
+                Enviar para triagem
+
+            </button>
+
+            <a
+                href="https://wa.me/5561999784330"
+                target="_blank"
+                class="staygo-whatsapp-link">
+
+                Prefiro chamar direto no WhatsApp
+
+            </a>
+
+            <div
+                class="staygo-form-status"
+                role="status"
+                aria-live="polite"></div>
+
+            <small>
+
+                O envio deste formulário não cria promessa de resultado e não
+                substitui a análise jurídica individual do advogado.
+
+            </small>
+
+        </form>
 
     </div>
 
@@ -1039,6 +1233,84 @@
 <!-- =========================================================
      MAIN JS
 ========================================================== -->
+
+<script>
+(() => {
+  const forms = document.querySelectorAll(".staygo-form");
+  const apiBase = "https://app.staygobot.com/api/public/capture";
+  const getParams = () => {
+    const params = new URLSearchParams(window.location.search);
+    return {
+      utm_source: params.get("utm_source") || "landing",
+      utm_medium: params.get("utm_medium") || "",
+      utm_campaign: params.get("utm_campaign") || "",
+      utm_term: params.get("utm_term") || "",
+      utm_content: params.get("utm_content") || "",
+      campaignid: params.get("campaignid") || "",
+      adgroupid: params.get("adgroupid") || "",
+      matchtype: params.get("matchtype") || "",
+      device: params.get("device") || navigator.userAgent,
+    };
+  };
+  const onlyDigits = (value) => String(value || "").replace(/\D/g, "");
+  const buildWhatsappUrl = (number, payload) => {
+    const text = [
+      "Olá, vim pelo site.",
+      payload.contactName ? "Nome: " + payload.contactName : "",
+      payload.city ? "Cidade: " + payload.city : "",
+      payload.area ? "Caso: " + payload.area : "",
+      payload.urgency ? "Urgência: " + payload.urgency : "",
+      payload.message ? "Relato: " + payload.message : "",
+    ].filter(Boolean).join("\n");
+    return "https://wa.me/" + onlyDigits(number) + "?text=" + encodeURIComponent(text);
+  };
+
+  forms.forEach((form) => {
+    const status = form.querySelector(".staygo-form-status");
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const submit = form.querySelector(".staygo-submit");
+      const slug = form.dataset.staygoSlug;
+      const whatsapp = form.dataset.staygoWhatsapp;
+      const data = Object.fromEntries(new FormData(form).entries());
+      const payload = {
+        ...data,
+        ...getParams(),
+        source: data.source || "landing",
+        campaign: data.campaign || getParams().utm_campaign,
+        keyword: data.keyword || getParams().utm_term,
+        pageUrl: window.location.href,
+      };
+
+      if (status) status.textContent = "Enviando para a Laura...";
+      if (submit) submit.disabled = true;
+
+      try {
+        const response = await fetch(`${apiBase}/${slug}/leads`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(result.error || "Não foi possível enviar.");
+        if (status) status.textContent = "Recebemos seu contato. A Laura já organizou a triagem para o escritório.";
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: "staygo_lead_submit", leadScore: result.leadScore, company: slug });
+        setTimeout(() => {
+          window.location.href = result.whatsappUrl || buildWhatsappUrl(whatsapp, payload);
+        }, 900);
+      } catch (error) {
+        if (status) status.textContent = "Não conseguimos enviar agora. Abrindo o WhatsApp para continuar.";
+        setTimeout(() => {
+          window.location.href = buildWhatsappUrl(whatsapp, payload);
+        }, 700);
+      } finally {
+        if (submit) submit.disabled = false;
+      }
+    });
+  });
+})();
+</script>
 
 <script src="js/main.js"></script>
 

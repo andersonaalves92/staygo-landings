@@ -536,6 +536,256 @@ nav a:hover{
 
 }
 
+/* ==========================================================
+   TRIAGEM STAYGO
+========================================================== */
+
+.triagem-staygo{
+
+    padding:120px 0;
+
+    background:linear-gradient(135deg,#0F172A,#111827);
+
+    color:white;
+
+}
+
+.triagem-staygo .container{
+
+    display:grid;
+
+    grid-template-columns:1fr 1.05fr;
+
+    gap:70px;
+
+    align-items:start;
+
+}
+
+.triagem-copy{
+
+    position:sticky;
+
+    top:120px;
+
+}
+
+.triagem-copy h2{
+
+    font-size:48px;
+
+    line-height:58px;
+
+    margin:16px 0 22px;
+
+}
+
+.triagem-copy p{
+
+    color:#CBD5E1;
+
+    font-size:19px;
+
+    line-height:34px;
+
+    margin-bottom:28px;
+
+}
+
+.triagem-copy ul{
+
+    list-style:none;
+
+    display:grid;
+
+    gap:14px;
+
+}
+
+.triagem-copy li{
+
+    color:#E5E7EB;
+
+    background:rgba(255,255,255,.06);
+
+    border:1px solid rgba(255,255,255,.10);
+
+    border-radius:14px;
+
+    padding:16px 18px;
+
+}
+
+.triagem-copy li::before{
+
+    content:"✓";
+
+    color:var(--dourado);
+
+    font-weight:900;
+
+    margin-right:10px;
+
+}
+
+.staygo-form{
+
+    background:#FFF;
+
+    color:var(--azul);
+
+    border-radius:24px;
+
+    padding:34px;
+
+    box-shadow:0 35px 90px rgba(0,0,0,.32);
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:18px;
+
+}
+
+.staygo-form h3,
+.staygo-form p,
+.staygo-form .staygo-full,
+.staygo-form .staygo-submit,
+.staygo-form .staygo-whatsapp-link,
+.staygo-form .staygo-form-status,
+.staygo-form small{
+
+    grid-column:1 / -1;
+
+}
+
+.staygo-form h3{
+
+    font-size:30px;
+
+    line-height:38px;
+
+}
+
+.staygo-form p{
+
+    color:#64748B;
+
+    margin-top:-8px;
+
+}
+
+.staygo-form label{
+
+    display:grid;
+
+    gap:8px;
+
+    color:#1F2937;
+
+    font-weight:700;
+
+    font-size:14px;
+
+}
+
+.staygo-form input,
+.staygo-form select,
+.staygo-form textarea{
+
+    width:100%;
+
+    border:1px solid #CBD5E1;
+
+    border-radius:12px;
+
+    padding:15px 16px;
+
+    font:inherit;
+
+    color:#111827;
+
+    background:#F8FAFC;
+
+    outline:none;
+
+    transition:.25s;
+
+}
+
+.staygo-form textarea{
+
+    resize:vertical;
+
+    min-height:120px;
+
+}
+
+.staygo-form input:focus,
+.staygo-form select:focus,
+.staygo-form textarea:focus{
+
+    border-color:var(--dourado);
+
+    box-shadow:0 0 0 4px rgba(201,161,74,.16);
+
+    background:white;
+
+}
+
+.staygo-submit{
+
+    justify-content:center;
+
+    border:none;
+
+    cursor:pointer;
+
+}
+
+.staygo-submit:disabled{
+
+    opacity:.7;
+
+    cursor:wait;
+
+}
+
+.staygo-whatsapp-link{
+
+    color:#16A34A;
+
+    text-align:center;
+
+    font-weight:800;
+
+    text-decoration:none;
+
+}
+
+.staygo-form-status{
+
+    min-height:22px;
+
+    color:#0F766E;
+
+    font-weight:800;
+
+    text-align:center;
+
+}
+
+.staygo-form small{
+
+    color:#64748B;
+
+    text-align:center;
+
+    line-height:24px;
+
+}
+
 .sobre .container{
 
     display:grid;
@@ -1238,4 +1488,3 @@ footer hr{
     transform:translateY(0);
 
 }
-

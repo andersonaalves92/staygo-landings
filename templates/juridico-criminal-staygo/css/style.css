@@ -1,0 +1,1490 @@
+/* ==========================================================
+   RESET
+========================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Inter',sans-serif;
+
+    background:#fff;
+
+    color:#222;
+
+    overflow-x:hidden;
+
+    line-height:1.6;
+
+}
+
+/* ==========================================================
+   VARIÁVEIS
+========================================================== */
+
+:root{
+
+    --azul:#0F172A;
+
+    --dourado:#C9A14A;
+
+    --cinza:#555;
+
+    --claro:#F8F8F8;
+
+    --branco:#FFF;
+
+    --sombra:0 20px 50px rgba(0,0,0,.12);
+
+}
+
+/* ==========================================================
+   CONTAINER
+========================================================== */
+
+.container{
+
+    width:90%;
+
+    max-width:1200px;
+
+    margin:auto;
+
+}
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+header{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    z-index:9999;
+
+    background:rgba(15,23,42,.95);
+
+    backdrop-filter:blur(12px);
+
+    transition:.35s;
+
+    padding:22px 0;
+
+    box-shadow:0 10px 35px rgba(0,0,0,.10);
+
+}
+
+header.scrolled{
+
+    padding:14px 0;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.18);
+
+}
+
+header .container{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.logo h2{
+
+    color:white;
+
+    font-size:32px;
+
+    margin-bottom:3px;
+
+}
+
+.logo span{
+
+    color:var(--dourado);
+
+    text-transform:uppercase;
+
+    letter-spacing:3px;
+
+    font-size:13px;
+
+}
+
+nav{
+
+    display:flex;
+
+    gap:35px;
+
+}
+
+nav a{
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.3s;
+
+    position:relative;
+
+}
+
+nav a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-8px;
+
+    width:0;
+
+    height:2px;
+
+    background:var(--dourado);
+
+    transition:.35s;
+
+}
+
+nav a:hover::after{
+
+    width:100%;
+
+}
+
+nav a:hover{
+
+    color:var(--dourado);
+
+}
+
+/* ==========================================================
+   BOTÕES
+========================================================== */
+
+.btn-principal{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    background:var(--dourado);
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:18px 40px;
+
+    border-radius:12px;
+
+    font-weight:700;
+
+    transition:.35s;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+
+}
+
+.btn-principal:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.btn-secundario{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    margin-left:15px;
+
+    padding:18px 40px;
+
+    border:2px solid var(--azul);
+
+    border-radius:12px;
+
+    color:var(--azul);
+
+    text-decoration:none;
+
+    font-weight:700;
+
+    transition:.35s;
+
+}
+
+.btn-secundario:hover{
+
+    background:var(--azul);
+
+    color:white;
+
+}
+
+.btn-whatsapp{
+
+    background:#25D366;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:15px 26px;
+
+    border-radius:12px;
+
+    font-weight:700;
+
+    transition:.35s;
+
+}
+
+.btn-whatsapp:hover{
+
+    transform:translateY(-4px);
+
+}
+
+/* ==========================================================
+   MENU MOBILE
+========================================================== */
+
+.menu-mobile{
+
+    display:none;
+
+    background:none;
+
+    border:none;
+
+    color:white;
+
+    font-size:30px;
+
+    cursor:pointer;
+
+}
+
+/* ==========================================================
+   HERO
+========================================================== */
+
+.hero{
+
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:center;
+
+    background:linear-gradient(135deg,#ffffff,#f3f4f6);
+
+    padding:170px 0 120px;
+
+}
+
+.hero .container{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:80px;
+
+    align-items:center;
+
+}
+
+.hero-tag{
+
+    display:inline-block;
+
+    background:#ece8db;
+
+    color:var(--dourado);
+
+    padding:10px 18px;
+
+    border-radius:999px;
+
+    font-weight:700;
+
+    margin-bottom:25px;
+
+}
+
+.hero h1{
+
+    font-size:64px;
+
+    line-height:74px;
+
+    color:var(--azul);
+
+    margin-bottom:30px;
+
+}
+
+.hero p{
+
+    font-size:21px;
+
+    color:var(--cinza);
+
+    line-height:35px;
+
+    margin-bottom:40px;
+
+}
+
+.hero-botoes{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:20px;
+
+}
+
+.hero-imagem{
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+.hero-imagem img{
+
+    width:100%;
+
+    max-width:520px;
+
+    border-radius:24px;
+
+    object-fit:cover;
+
+    box-shadow:0 35px 80px rgba(0,0,0,.22);
+
+    transition:.4s;
+
+}
+
+.hero-imagem img:hover{
+
+    transform:scale(1.02);
+
+}
+
+/* ==========================================================
+   ÁREAS DE ATUAÇÃO
+========================================================== */
+
+.areas{
+
+    padding:120px 0;
+
+    background:#F8F8F8;
+
+}
+
+.areas h2{
+
+    text-align:center;
+
+    font-size:48px;
+
+    color:var(--azul);
+
+    margin:18px 0;
+
+}
+
+.subtitulo{
+
+    max-width:760px;
+
+    margin:0 auto 70px;
+
+    text-align:center;
+
+    color:#666;
+
+    font-size:19px;
+
+    line-height:34px;
+
+}
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:35px;
+
+}
+
+.card{
+
+    background:#FFF;
+
+    border-radius:22px;
+
+    padding:40px;
+
+    transition:.35s;
+
+    box-shadow:0 20px 45px rgba(0,0,0,.08);
+
+    border-top:5px solid transparent;
+
+}
+
+.card:hover{
+
+    transform:translateY(-12px);
+
+    border-top:5px solid var(--dourado);
+
+    box-shadow:0 35px 70px rgba(0,0,0,.15);
+
+}
+
+.card span{
+
+    width:80px;
+
+    height:80px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:50%;
+
+    background:linear-gradient(135deg,var(--dourado),#e5c36f);
+
+    color:white;
+
+    font-size:34px;
+
+    margin-bottom:30px;
+
+}
+
+.card h3{
+
+    color:var(--azul);
+
+    margin-bottom:18px;
+
+    font-size:24px;
+
+}
+
+.card p{
+
+    color:#666;
+
+    line-height:32px;
+
+}
+
+/* ==========================================================
+   SOBRE
+========================================================== */
+
+.sobre{
+
+    padding:130px 0;
+
+    background:white;
+
+}
+
+/* ==========================================================
+   TRIAGEM STAYGO
+========================================================== */
+
+.triagem-staygo{
+
+    padding:120px 0;
+
+    background:linear-gradient(135deg,#0F172A,#111827);
+
+    color:white;
+
+}
+
+.triagem-staygo .container{
+
+    display:grid;
+
+    grid-template-columns:1fr 1.05fr;
+
+    gap:70px;
+
+    align-items:start;
+
+}
+
+.triagem-copy{
+
+    position:sticky;
+
+    top:120px;
+
+}
+
+.triagem-copy h2{
+
+    font-size:48px;
+
+    line-height:58px;
+
+    margin:16px 0 22px;
+
+}
+
+.triagem-copy p{
+
+    color:#CBD5E1;
+
+    font-size:19px;
+
+    line-height:34px;
+
+    margin-bottom:28px;
+
+}
+
+.triagem-copy ul{
+
+    list-style:none;
+
+    display:grid;
+
+    gap:14px;
+
+}
+
+.triagem-copy li{
+
+    color:#E5E7EB;
+
+    background:rgba(255,255,255,.06);
+
+    border:1px solid rgba(255,255,255,.10);
+
+    border-radius:14px;
+
+    padding:16px 18px;
+
+}
+
+.triagem-copy li::before{
+
+    content:"✓";
+
+    color:var(--dourado);
+
+    font-weight:900;
+
+    margin-right:10px;
+
+}
+
+.staygo-form{
+
+    background:#FFF;
+
+    color:var(--azul);
+
+    border-radius:24px;
+
+    padding:34px;
+
+    box-shadow:0 35px 90px rgba(0,0,0,.32);
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:18px;
+
+}
+
+.staygo-form h3,
+.staygo-form p,
+.staygo-form .staygo-full,
+.staygo-form .staygo-submit,
+.staygo-form .staygo-whatsapp-link,
+.staygo-form .staygo-form-status,
+.staygo-form small{
+
+    grid-column:1 / -1;
+
+}
+
+.staygo-form h3{
+
+    font-size:30px;
+
+    line-height:38px;
+
+}
+
+.staygo-form p{
+
+    color:#64748B;
+
+    margin-top:-8px;
+
+}
+
+.staygo-form label{
+
+    display:grid;
+
+    gap:8px;
+
+    color:#1F2937;
+
+    font-weight:700;
+
+    font-size:14px;
+
+}
+
+.staygo-form input,
+.staygo-form select,
+.staygo-form textarea{
+
+    width:100%;
+
+    border:1px solid #CBD5E1;
+
+    border-radius:12px;
+
+    padding:15px 16px;
+
+    font:inherit;
+
+    color:#111827;
+
+    background:#F8FAFC;
+
+    outline:none;
+
+    transition:.25s;
+
+}
+
+.staygo-form textarea{
+
+    resize:vertical;
+
+    min-height:120px;
+
+}
+
+.staygo-form input:focus,
+.staygo-form select:focus,
+.staygo-form textarea:focus{
+
+    border-color:var(--dourado);
+
+    box-shadow:0 0 0 4px rgba(201,161,74,.16);
+
+    background:white;
+
+}
+
+.staygo-submit{
+
+    justify-content:center;
+
+    border:none;
+
+    cursor:pointer;
+
+}
+
+.staygo-submit:disabled{
+
+    opacity:.7;
+
+    cursor:wait;
+
+}
+
+.staygo-whatsapp-link{
+
+    color:#16A34A;
+
+    text-align:center;
+
+    font-weight:800;
+
+    text-decoration:none;
+
+}
+
+.staygo-form-status{
+
+    min-height:22px;
+
+    color:#0F766E;
+
+    font-weight:800;
+
+    text-align:center;
+
+}
+
+.staygo-form small{
+
+    color:#64748B;
+
+    text-align:center;
+
+    line-height:24px;
+
+}
+
+.sobre .container{
+
+    display:grid;
+
+    grid-template-columns:45% 55%;
+
+    gap:80px;
+
+    align-items:center;
+
+}
+
+.sobre-imagem{
+
+    position:relative;
+
+}
+
+.sobre-imagem img{
+
+    width:100%;
+
+    border-radius:24px;
+
+    object-fit:cover;
+
+    box-shadow:0 35px 70px rgba(0,0,0,.18);
+
+}
+
+.sobre-texto{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+}
+
+.titulo-pequeno{
+
+    display:inline-block;
+
+    color:var(--dourado);
+
+    text-transform:uppercase;
+
+    letter-spacing:4px;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    margin-bottom:18px;
+
+}
+
+.sobre h2{
+
+    font-size:50px;
+
+    color:var(--azul);
+
+    margin-bottom:12px;
+
+}
+
+.sobre h3{
+
+    color:#777;
+
+    margin-bottom:28px;
+
+    font-weight:500;
+
+}
+
+.sobre p{
+
+    font-size:18px;
+
+    line-height:34px;
+
+    color:#555;
+
+    margin-bottom:22px;
+
+}
+
+/* ==========================================================
+   DIFERENCIAIS
+========================================================== */
+
+.diferenciais{
+
+    background:var(--azul);
+
+    color:white;
+
+    padding:130px 0;
+
+}
+
+.titulo-menor{
+
+    display:block;
+
+    text-align:center;
+
+    color:var(--dourado);
+
+    letter-spacing:4px;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    margin-bottom:20px;
+
+}
+
+.diferenciais h2{
+
+    text-align:center;
+
+    font-size:50px;
+
+    max-width:850px;
+
+    margin:0 auto 30px;
+
+}
+
+.descricao{
+
+    max-width:760px;
+
+    margin:0 auto 80px;
+
+    text-align:center;
+
+    color:#d7d7d7;
+
+    line-height:34px;
+
+    font-size:18px;
+
+}
+
+.grid-diferenciais{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:35px;
+
+}
+
+.item{
+
+    background:#1B2740;
+
+    border-radius:22px;
+
+    padding:45px;
+
+    transition:.35s;
+
+    border-left:5px solid transparent;
+
+}
+
+.item:hover{
+
+    transform:translateY(-10px);
+
+    border-left:5px solid var(--dourado);
+
+    box-shadow:0 30px 60px rgba(0,0,0,.25);
+
+}
+
+.item i{
+
+    font-size:40px;
+
+    color:var(--dourado);
+
+    margin-bottom:25px;
+
+}
+
+.item h3{
+
+    margin-bottom:18px;
+
+    font-size:24px;
+
+}
+
+.item p{
+
+    color:#d7d7d7;
+
+    line-height:32px;
+
+}
+
+/* ==========================================================
+   TRANSIÇÕES GERAIS
+========================================================== */
+
+.card,
+.item,
+.prova,
+.btn-principal,
+.btn-whatsapp,
+.btn-secundario{
+
+    transition:all .35s ease;
+
+}
+
+/* ==========================================================
+   CTA
+========================================================== */
+
+.cta{
+
+    padding:120px 0;
+
+    background:linear-gradient(135deg,#C9A14A,#b88e32);
+
+    text-align:center;
+
+}
+
+.cta h2{
+
+    color:white;
+
+    font-size:52px;
+
+    margin:20px auto;
+
+    max-width:850px;
+
+}
+
+.cta p{
+
+    color:#fff;
+
+    font-size:20px;
+
+    line-height:34px;
+
+    max-width:700px;
+
+    margin:0 auto 40px;
+
+}
+
+.cta .btn-principal{
+
+    background:var(--azul);
+
+}
+
+.cta .btn-principal:hover{
+
+    background:#1d2a45;
+
+}
+
+/* ==========================================================
+   PROVA SOCIAL
+========================================================== */
+
+.prova-social{
+
+    padding:120px 0;
+
+    background:white;
+
+}
+
+.prova-social h2{
+
+    text-align:center;
+
+    font-size:48px;
+
+    color:var(--azul);
+
+    margin:18px 0;
+
+}
+
+.provas{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:35px;
+
+    margin-top:70px;
+
+}
+
+.prova{
+
+    background:white;
+
+    border-radius:22px;
+
+    padding:45px;
+
+    text-align:center;
+
+    box-shadow:0 18px 40px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+}
+
+.prova:hover{
+
+    transform:translateY(-10px);
+
+}
+
+.prova i{
+
+    font-size:42px;
+
+    color:var(--dourado);
+
+    margin-bottom:25px;
+
+}
+
+.prova h3{
+
+    color:var(--azul);
+
+    margin-bottom:18px;
+
+}
+
+.prova p{
+
+    color:#666;
+
+    line-height:30px;
+
+}
+
+/* ==========================================================
+   FAQ
+========================================================== */
+
+.faq{
+
+    padding:120px 0;
+
+    background:#F8F8F8;
+
+}
+
+.faq h2{
+
+    text-align:center;
+
+    font-size:48px;
+
+    color:var(--azul);
+
+    margin-bottom:50px;
+
+}
+
+.faq-item{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:35px;
+
+    margin-bottom:22px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.06);
+
+}
+
+.faq-item h3{
+
+    color:var(--azul);
+
+    margin-bottom:18px;
+
+    font-size:22px;
+
+}
+
+.faq-item p{
+
+    color:#666;
+
+    line-height:32px;
+
+}
+
+/* ==========================================================
+   CONTATO
+========================================================== */
+
+.contato{
+
+    padding:120px 0;
+
+    background:white;
+
+}
+
+.contato .container{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:60px;
+
+    align-items:center;
+
+}
+
+.contato h2{
+
+    font-size:48px;
+
+    color:var(--azul);
+
+    margin-bottom:20px;
+
+}
+
+.contato-info p{
+
+    color:#666;
+
+    margin-bottom:35px;
+
+}
+
+.contato-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    margin-bottom:22px;
+
+    font-size:18px;
+
+}
+
+.contato-item i{
+
+    width:55px;
+
+    height:55px;
+
+    border-radius:50%;
+
+    background:var(--dourado);
+
+    color:white;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:22px;
+
+}
+
+.mapa-placeholder{
+
+    width:100%;
+
+    min-height:450px;
+
+    background:#ECECEC;
+
+    border-radius:24px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#666;
+
+    font-weight:600;
+
+    font-size:20px;
+
+}
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+footer{
+
+    background:var(--azul);
+
+    color:white;
+
+    padding:80px 0 40px;
+
+}
+
+.footer-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:50px;
+
+    margin-bottom:40px;
+
+}
+
+.footer-grid h3{
+
+    color:white;
+
+    margin-bottom:20px;
+
+    font-size:28px;
+
+}
+
+.footer-grid h4{
+
+    color:var(--dourado);
+
+    margin-bottom:18px;
+
+}
+
+.footer-grid p{
+
+    color:#d7d7d7;
+
+    line-height:30px;
+
+}
+
+footer hr{
+
+    border:none;
+
+    border-top:1px solid rgba(255,255,255,.15);
+
+    margin:40px 0;
+
+}
+
+.copyright{
+
+    text-align:center;
+
+    color:#bfbfbf;
+
+}
+
+/* ==========================================================
+   BOTÃO WHATSAPP
+========================================================== */
+
+.whatsapp-float{
+
+    position:fixed;
+
+    right:25px;
+
+    bottom:25px;
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:50%;
+
+    background:#25D366;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:white;
+
+    font-size:34px;
+
+    text-decoration:none;
+
+    box-shadow:0 18px 45px rgba(0,0,0,.25);
+
+    z-index:9999;
+
+    transition:.35s;
+
+}
+
+.whatsapp-float:hover{
+
+    transform:scale(1.1);
+
+}
+
+/* ==========================================================
+   VOLTAR AO TOPO
+========================================================== */
+
+.voltar-topo{
+
+    position:fixed;
+
+    right:30px;
+
+    bottom:110px;
+
+    width:55px;
+
+    height:55px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:var(--azul);
+
+    color:white;
+
+    cursor:pointer;
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:20px;
+
+    z-index:9998;
+
+    transition:.35s;
+
+}
+
+.voltar-topo:hover{
+
+    background:var(--dourado);
+
+}
+
+/* ==========================================================
+   ANIMAÇÕES
+========================================================== */
+
+.fade{
+
+    opacity:0;
+
+    transform:translateY(40px);
+
+    transition:.8s;
+
+}
+
+.fade.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
