@@ -1253,6 +1253,13 @@
     };
   };
   const onlyDigits = (value) => String(value || "").replace(/\D/g, "");
+  const escapeHtml = (value) => String(value || "").replace(/[&<>"']/g, (char) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    "\"": "&quot;",
+    "'": "&#039;",
+  }[char]));
   const buildWhatsappUrl = (number, payload) => {
     const text = [
       "Olá, vim pelo site.",
@@ -1293,12 +1300,18 @@
         });
         const result = await response.json().catch(() => ({}));
         if (!response.ok) throw new Error(result.error || "Não foi possível enviar.");
-        if (status) status.textContent = "Recebemos seu contato. A Laura já organizou a triagem para o escritório.";
+        const whatsappUrl = result.whatsappUrl || buildWhatsappUrl(whatsapp, payload);
+        if (status) {
+          status.innerHTML = `
+            <div class="laura-response">
+              <strong>Laura</strong>
+              <span>${escapeHtml(result.lauraMessage || "Recebi seu contato. Me conta um pouco mais sobre o que aconteceu para eu organizar melhor para o advogado.")}</span>
+              <a href="${whatsappUrl}" target="_blank" rel="noreferrer">Continuar pelo WhatsApp</a>
+            </div>
+          `;
+        }
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({ event: "staygo_lead_submit", leadScore: result.leadScore, company: slug });
-        setTimeout(() => {
-          window.location.href = result.whatsappUrl || buildWhatsappUrl(whatsapp, payload);
-        }, 900);
       } catch (error) {
         if (status) status.textContent = "Não conseguimos enviar agora. Abrindo o WhatsApp para continuar.";
         setTimeout(() => {

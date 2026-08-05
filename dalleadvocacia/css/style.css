@@ -776,6 +776,70 @@ nav a:hover{
 
 }
 
+.laura-response{
+
+    display:grid;
+
+    gap:10px;
+
+    text-align:left;
+
+    background:linear-gradient(135deg,#ECFDF5,#F8FAFC);
+
+    border:1px solid #A7F3D0;
+
+    border-radius:16px;
+
+    padding:18px;
+
+    color:#0F172A;
+
+}
+
+.laura-response strong{
+
+    width:fit-content;
+
+    background:#0F766E;
+
+    color:white;
+
+    border-radius:999px;
+
+    padding:6px 12px;
+
+    font-size:13px;
+
+}
+
+.laura-response span{
+
+    color:#1F2937;
+
+    line-height:28px;
+
+}
+
+.laura-response a{
+
+    display:inline-flex;
+
+    width:fit-content;
+
+    background:#25D366;
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:12px;
+
+    padding:12px 16px;
+
+    font-weight:900;
+
+}
+
 .staygo-form small{
 
     color:#64748B;
