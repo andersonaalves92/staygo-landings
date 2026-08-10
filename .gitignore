@@ -5,3 +5,14 @@ node_modules/
 dist/
 .env
 .env.*
+!.env.example
+*.pem
+*.p12
+id_rsa*
+*.key
+*.sql
+*.dump
+*.backup
+backups/
+private/
+secrets/
