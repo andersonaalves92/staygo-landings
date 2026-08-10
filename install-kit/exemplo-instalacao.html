@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exemplo de instalação - Laura StayGoBot</title>
+
+  <!-- 1. CSS da Laura -->
+  <link rel="stylesheet" href="./staygo-laura.css">
+
+  <style>
+    body{
+      background:#f6f7fb;
+      color:#111827;
+      font-family:Inter, Arial, sans-serif;
+      margin:0;
+    }
+
+    main{
+      margin:0 auto;
+      max-width:1040px;
+      padding:48px 20px 120px;
+    }
+
+    .hero{
+      background:#111827;
+      border-radius:8px;
+      color:#fff;
+      padding:42px;
+    }
+
+    .hero h1{
+      font-size:clamp(34px, 6vw, 64px);
+      line-height:1.02;
+      margin:0 0 18px;
+      max-width:760px;
+    }
+
+    .hero p{
+      color:#d1d5db;
+      font-size:18px;
+      line-height:1.6;
+      max-width:720px;
+    }
+
+    .actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:24px;
+    }
+
+    .btn{
+      align-items:center;
+      border-radius:999px;
+      display:inline-flex;
+      font-weight:900;
+      justify-content:center;
+      min-height:48px;
+      padding:0 18px;
+      text-decoration:none;
+    }
+
+    .btn-primary{
+      background:#c9a227;
+      color:#111;
+    }
+
+    .btn-dark{
+      background:#fff;
+      color:#111827;
+    }
+
+    .grid{
+      display:grid;
+      gap:16px;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      margin-top:22px;
+    }
+
+    .card{
+      background:#fff;
+      border:1px solid #e5e7eb;
+      border-radius:8px;
+      padding:20px;
+    }
+
+    .card h2{
+      font-size:20px;
+      margin:0 0 10px;
+    }
+
+    @media (max-width:820px){
+      .grid{grid-template-columns:1fr}
+      .hero{padding:28px}
+      .btn{width:100%}
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <h1>Advocacia criminal com atendimento rápido</h1>
+      <p>Esta é uma página de exemplo. O site do cliente pode manter o layout dele; o dev só precisa adicionar as classes e o script da Laura.</p>
+
+      <div class="actions">
+        <!-- 2. Botão WhatsApp existente: adicione js-whatsapp -->
+        <a class="btn btn-primary js-whatsapp" href="https://wa.me/5561999999999">
+          Falar no WhatsApp
+        </a>
+
+        <!-- 3. Link de telefone: adicione js-phone -->
+        <a class="btn btn-dark js-phone" href="tel:+5561999999999">
+          Ligar agora
+        </a>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>Habeas corpus</h2>
+        <p>Botão por intenção. A Laura já abre com o assunto pré-preenchido.</p>
+        <button class="btn btn-primary js-staygo-chat" data-intent="habeas corpus urgente">
+          Iniciar triagem
+        </button>
+      </article>
+
+      <article class="card">
+        <h2>Audiência de custódia</h2>
+        <p>Use o mesmo padrão para qualquer área, serviço ou urgência.</p>
+        <button class="btn btn-primary js-staygo-chat" data-intent="audiência de custódia">
+          Falar com a Laura
+        </button>
+      </article>
+
+      <article class="card">
+        <h2>Checklist gratuito</h2>
+        <p>Lead magnet simples para capturar quem ainda não sabe o que escrever.</p>
+        <button class="btn btn-primary js-staygo-chat" data-intent="lead magnet checklist criminal">
+          Abrir checklist
+        </button>
+      </article>
+    </section>
+  </main>
+
+  <!-- 4. Configuração da empresa no StayGo -->
+  <script>
+    window.STAYGO_LAURA_CONFIG = {
+      slug: 'kelven-criminalista',
+      company: 'Kelven Criminalista',
+      assistantName: 'Laura',
+      whatsappNumber: '556192059571',
+      defaultArea: 'Criminal',
+      defaultCity: 'Brasília/DF',
+      capturedFrom: 'site_cliente',
+      leadEndpoint: 'https://app.staygobot.com/api/public/capture/kelven-criminalista/leads',
+      eventEndpoint: 'https://app.staygobot.com/api/public/capture/kelven-criminalista/events',
+      openWhatsappAfterLead: true,
+      interceptWhatsappButtons: true
+    };
+  </script>
+
+  <!-- 5. JS da Laura -->
+  <script src="./staygo-laura.js" defer></script>
+</body>
+</html>
