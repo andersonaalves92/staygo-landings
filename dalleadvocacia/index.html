@@ -73,6 +73,9 @@
         href="css/style.css">
 
     <link rel="stylesheet"
+        href="staygo-laura.css">
+
+    <link rel="stylesheet"
         href="css/responsive.css">
 
     <!-- Google Tag Manager -->
@@ -130,7 +133,9 @@
             <a
                 href="https://wa.me/5561999784330"
                 target="_blank"
-                class="btn-whatsapp">
+                class="btn-whatsapp js-whatsapp"
+                data-staygo-whatsapp="true"
+                data-intent="atendimento criminal urgente">
 
                 WhatsApp
 
@@ -1147,7 +1152,9 @@
 
 <a
     href="https://wa.me/5561999784330"
-    class="whatsapp-float"
+    class="whatsapp-float js-whatsapp"
+    data-staygo-whatsapp="true"
+    data-intent="atendimento criminal urgente"
     target="_blank"
     aria-label="Conversar pelo WhatsApp">
 
@@ -1326,6 +1333,26 @@
 </script>
 
 <script src="js/main.js"></script>
+
+<script>
+  window.STAYGO_LAURA_CONFIG = {
+    slug: "dalleadvocacia",
+    company: "Arthur Dalle Molle Advocacia Criminal",
+    assistantName: "Laura",
+    defaultCity: "Brasilia/DF",
+    defaultArea: "Criminal",
+    capturedFrom: "dalleadvocacia",
+    defaultSource: "site",
+    defaultCampaign: "dalle_criminal_brasilia",
+    whatsappNumber: "5561999784330",
+    leadEndpoint: "https://app.staygobot.com/api/public/capture/dalleadvocacia/leads",
+    eventEndpoint: "https://app.staygobot.com/api/public/capture/dalleadvocacia/events",
+    interceptWhatsappButtons: true,
+    openWhatsappAfterLead: true,
+    whatsappMessage: "Ola, enviei meus dados para a Laura pelo site e preciso de atendimento criminal."
+  };
+</script>
+<script src="staygo-laura.js" defer></script>
 
 </body>
 
